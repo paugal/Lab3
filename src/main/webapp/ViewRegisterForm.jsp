@@ -6,9 +6,9 @@
 	<p>      
     <label class="w3-text-red"><b> User id </b></label>
     <label for="user"> User name:</label><br>
-	<input type="text" id="user" name="user" placeholder="Name" value="<%=((User)request.getAttribute("model")).getUser()%>" required><br>
+	<input type="text" id="user" name="user" placeholder="Name" value= "${user.username}" required><br>
 	<label for="fullName"> Full name:</label><br>
-	  <input type="text" id="fullName" name="fullName" placeholder="Full name" value="<%=((User)request.getAttribute("model")).getFullName() %>" required><br>
+	  <input type="text" id="fullName" name="fullName" placeholder="Full name" value="${user.fullname}" required><br>
 	  <label for="location"> Country:</label><br>
 	  <select id="location" name="location">
 		   <option value="Afganistan">Afghanistan</option>
@@ -259,14 +259,13 @@
 		   <option value="Zimbabwe">Zimbabwe</option>
 		</select><br>
 	  <label for="phoneNumber">  Phone Number:</label><br>
-	  <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" value="<%=((User)request.getAttribute("model")).getPhoneNumber() %>" required pattern="[0-9]{9}"><br>
+	  <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" value= "${user.phoneNumber}" required pattern="[0-9]{9}"><br>
 	  <label for="mail"> Mail  </label><br>
-	  <input type="email" id="mail" name="mail" placeholder="Mail" value="<%=((User)request.getAttribute("model")).getMail()%>" required><br>
+	  <input type="email" id="mail" name="mail" placeholder="Mail" value="${user.mail}" required><br>
 	  <label for="pwd1"> Password: </label><br>
-	  <input type="password" id="pwd1" name="pwd1" placeholder="Password" value="<%=((User)request.getAttribute("model")).getPwd1()%>" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"><br>
+	  <input type="password" id="pwd1" name="pwd1" placeholder="Password" value="${user.pwd1}" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"><br>
 	  <label for="pwd2"> Confirm Password: </label><br>
-	  <input type="password" id="pwd2" name="pwd2" placeholder="Confirm Password" value="<%=((User)request.getAttribute("model")).getPwd2()%>" required><br><br>
+	  <input type="password" id="pwd2" name="pwd2" placeholder="Confirm Password" value="${user.pwd2}" required><br><br>
 	  
-
     <input class="w3-btn w3-red" type="submit" name="sumbit" value="Submit"></p>
 </form>
