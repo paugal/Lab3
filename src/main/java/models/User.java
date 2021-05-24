@@ -4,21 +4,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class User implements java.io.Serializable {
-	
-	/*
-	CREATE TABLE `users` (
-		`ID` int NOT NULL AUTO_INCREMENT,
-		`usr` varchar(255) NOT NULL UNIQUE,
-		`fullname` varchar(255) NOT NULL,
-		`phoneNumber` varchar(16) NOT NULL UNIQUE,
-		`location` varchar(128),
-		`mail` varchar(255) NOT NULL UNIQUE,
-		`pwd` varchar(255) NOT NULL,
-		PRIMARY KEY (`ID`)
-	 ); 
-	 * 
-	 */
-	
 	private static final long serialVersionUID = 1L;
 	
 	private String username = "";
@@ -95,11 +80,7 @@ public class User implements java.io.Serializable {
 	
 	public void setPwd2(String pwd2) {
 		// equal to password 1
-		if (true)
-			this.pwd2 = pwd2;
-		else 
-			error[3] = true;
-		
+		this.pwd2 = pwd2;
 		System.out.println(pwd2);
 	}
 
@@ -127,18 +108,20 @@ public class User implements java.io.Serializable {
 	}
 
 	public void setLocation(String location) {
-		if (true)
-			this.location = location;
-		else 
-			error[6] = true;
+		this.location = location;
 		
 		System.out.println(location);
 	}
 	
 	/* Logic Functions */
 	public boolean isComplete() {
-	    return(hasValue(getUsername()) &&
-	           hasValue(getMail()) );
+		return (hasValue(getUsername()) &&
+				hasValue(getFullName()) &&
+				hasValue(getLocation()) &&
+				hasValue(getPhoneNumber()) &&
+				hasValue(getMail()) &&
+				hasValue(getPwd1()) &&
+				hasValue(getPwd2()) );
 	}
 	
 	private boolean hasValue(String val) {
