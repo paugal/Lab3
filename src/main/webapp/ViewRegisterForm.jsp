@@ -9,9 +9,7 @@
 			<p class="error"> ${user.errorMessages[loop.index]} </p>
 		</c:if>
 	</c:forEach>
-	<c:if test="${errorMessage}">
-		<span class="error">${errorMessage}</span>
-	</c:if>
+	<span class="error">${errorMessage}</span>
 </div>
 
 <form action="RegisterController" method="POST">

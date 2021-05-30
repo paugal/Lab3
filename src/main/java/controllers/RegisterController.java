@@ -56,8 +56,8 @@ public class RegisterController extends HttpServlet {
 				// incorrect sql insertion -> same screen 
 				} else {
 					incorrectRegister();
-					request.setAttribute("user",user);
-					request.setAttribute("errorMessage",sqlResponse);}
+					request.setAttribute("user", user);
+					request.setAttribute("errorMessage", sqlResponse);}
 				
 			// Not complete form or errors	
 		   	} else {
