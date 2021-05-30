@@ -113,18 +113,5 @@ public class User implements java.io.Serializable {
 		System.out.println(location);
 	}
 	
-	/* Logic Functions */
-	public boolean isComplete() {
-		return (hasValue(getUsername()) &&
-				hasValue(getFullName()) &&
-				hasValue(getLocation()) &&
-				hasValue(getPhoneNumber()) &&
-				hasValue(getMail()) &&
-				hasValue(getPwd1()) &&
-				hasValue(getPwd2()) );
-	}
 	
-	private boolean hasValue(String val) {
-		return((val != null) && (!val.equals("")));
-	}
 }

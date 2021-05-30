@@ -2,11 +2,27 @@
     pageEncoding="UTF-8" session="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<form action="LoginController" method="POST">
-	<label class="w3-text-red" for="user"><b>User name:</b></label><br>
-	<input class="w3-input w3-border w3-light-grey" type="text" id="user" name="user" placeholder="Name" value= "${user.username}" required><br>
+<!-- Errors -->
+<div class="errors">
+	<c:forEach var="error" items="${user.error}" varStatus="loop">
+		<c:if test="${user.error[loop.index]}">
+			<p class="error"> ${user.errorMessages[loop.index]} </p>
+		</c:if>
+	</c:forEach>
+	<c:if test="${errorMessage}">
+		<span class="error">${errorMessage}</span>
+	</c:if>
+</div>
+
+<form action="RegisterController" method="POST">
+	<label class="w3-text-red" for="username"><b>User name:</b></label><br>
+	<input class="w3-input w3-border w3-light-grey" type="text" id="username" name="username" placeholder="Name" 
+		value= "${user.username}" required><br>
+		
 	<label class="w3-text-red" for="fullName"><b>Full name:</b></label><br>
-	<input class="w3-input w3-border w3-light-grey" type="text" id="fullName" name="fullName" placeholder="Full name" value="${user.fullName}" required><br>
+	<input class="w3-input w3-border w3-light-grey" type="text" id="fullName" name="fullName" placeholder="Full name" 
+		value="${user.fullName}" required ><br>
+		
 	<label class="w3-text-red" for="location"><b>Country:</b></label><br>
 	<select class="w3-input w3-border w3-light-grey" id="location" name="location">
 	   <option value="Afganistan">Afghanistan</option>
@@ -256,14 +272,22 @@
 	   <option value="Zambia">Zambia</option>
 	   <option value="Zimbabwe">Zimbabwe</option>
 	</select><br>
+	
 	<label class="w3-text-red" for="phoneNumber"><b>Phone Number:</b></label><br>
-	<input class="w3-input w3-border w3-light-grey" type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" value= "${user.phoneNumber}" required pattern="[0-9]{9}"><br>
+	<input class="w3-input w3-border w3-light-grey" type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" 
+		value= "${user.phoneNumber}" required pattern="[0-9]{9}"><br>
+		
 	<label class="w3-text-red" for="mail"><b>Mail</b></label><br>
-	<input class="w3-input w3-border w3-light-grey" type="email" id="mail" name="mail" placeholder="Mail" value="${user.mail}" required><br>
+	<input class="w3-input w3-border w3-light-grey" type="email" id="mail" name="mail" placeholder="Mail" 
+		value="${user.mail}" required ><br>
+		
 	<label class="w3-text-red" for="pwd1"><b>Password:</b></label><br>
-	<input class="w3-input w3-border w3-light-grey" type="password" id="pwd1" name="pwd1" placeholder="Password" value="${user.pwd1}" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"><br>
+	<input class="w3-input w3-border w3-light-grey" type="password" id="pwd1" name="pwd1" placeholder="Password" 
+		value="${user.pwd1}" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" ><br>
+		
 	<label class="w3-text-red" for="pwd2"><b>Confirm Password:</b></label><br>
-	<input class="w3-input w3-border w3-light-grey" type="password" id="pwd2" name="pwd2" placeholder="Confirm Password" value="${user.pwd2}" required><br><br>
+	<input class="w3-input w3-border w3-light-grey" type="password" id="pwd2" name="pwd2" placeholder="Confirm Password" 
+		value="${user.pwd2}" required ><br><br>
 	  
-	   <input class="w3-btn w3-red" type="submit" name="sumbit" value="Submit">
+	<input class="w3-btn w3-red" type="submit" name="sumbit" value="Submit">
 </form>
